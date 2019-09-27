@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <script>
+        var video;
+        window.onload = function() {
+            // var element = document.getElementById("outerDiv");
+            // console.log(element.innerHTML);
+            // var paragraphs = document.querySelectorAll("#outerDiv");
+            // console.log(paragraphs.length);
+            // var outerDiv = document.getElementById("outerDiv");
+            // var innerDiv = document.getElementById("innerDiv");
+            // document.removeChild(element)
+            // var element = document.createElement("article");
+            // element.innerText = "New <article> element";
+            // innerDiv.insertBefore(element, innerDiv.firstChild);
+            // var innerDiv = document.getElementById("innerDiv");
+            // var p = innerDiv.removeChild(document.getElementById("P1"))
+            // var newDiv = document.createElement("div");
+            // for(var i = 0; i < innerDiv.childNodes.length; i++) {
+            //     var anchor = newDiv.appendChild(document.createElement("a"));
+            //     anchor.setAttribute("href", "http://www.bing.ca");
+            //     anchor.text = innerDiv.childNodes[i].textContent;
+            //     newDiv.appendChild(document.createElement("br"));
+            // }
+            // innerDiv.parentNode.replaceChild(newDiv, innerDiv);
+            video = document.getElementById("sampleVideo");
+        }
+        function play() {
+            video.play();
+        }
+        function pause() {
+            video.pause();
+        }
+        function back() {
+            video.currentTime -= 10;
+        }
+    </script>
+    <style>
+        img:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="outerDiv">
+    <p class="mainPara">Main paragraph</p>
+    <ul>
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li>Third list item</li>
+        <li>Fourth list item</li>
+    </ul>
+    <div id="innerDiv">
+        <p class="subPara" id="P1">Paragraph 1</p>
+        <p class="subPara" id="P2">Paragraph 2</p>
+        <p class="subPara" id="P3">Paragraph 3</p>
+        <p class="subPara" id="P4">Paragraph 4</p>
+    </div>
+    <table>
+        <tr>
+            <td>Row1</td>
+        </tr>
+        <tr>
+            <td>Row2</td>
+        </tr>
+        <tr>
+            <td>Row3</td>
+        </tr>
+        <tr>
+            <td>Row4</td>
+        </tr>
+        <tr>
+            <td>Row5</td>
+        </tr>
+    </table>
+    <input type="text"/>
+    <input type="submit" value="Submit"/>
+    <br>
+    <table>
+        <tr>
+            <td>
+                <video id="sampleVideo" autoplay controls height="100" width="500" style="background-color: gray;" poster="orange.jpg">
+                    <source src="SampleVideo_360x240_30mb.mp4" type="video/mp4">
+                    <source src="SampleVideo_360x240_30mb.mkv" type="video/mkv">
+                    <source src="SampleVideo_360x240_30mb.flv" type="video/flv">
+                    <object>
+                        <p>Video is not supported by this browser</p>
+                    </object>
+                </video>
+            </td>
+            <td>
+                <img id="backButton" src="back.png" onclick="back()"/>
+                <img id="playButton" src="play.png" onclick="play()"/>
+                <img id="pauseButton" src="pause.png" onclick="pause()"/>
+
+            </td>
+        </tr>
+        <tr>
+            <td>
+                <audio id="sampleAudio" controls>
+                    <source src="Alphaville%20-%20Inside%20Out.mp3" type="video/mp3">
+                    <p>Your browser does not support HTML5 audio</p>
+                </audio>
+            </td>
+            <td>
+                <img src="back.png" onclick="back()"/>
+                <img src="play.png" onclick="play()"/>
+                <img src="pause.png" onclick="pause()"/>
+
+            </td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>
