@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <script>
+        var video;
+        window.onload = function () {
+            var drawingSurface = document.getElementById("drawingSurface");
+            var ctxt = drawingSurface.getContext("2d");
+            console.log(ctxt);
+
+            ctxt.beginPath();
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = "#f00";
+            ctxt.moveTo(10,380)
+            ctxt.quadraticCurveTo(300, -250, 580, 380)
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.lineWidth = 25;
+            ctxt.strokeStyle = "#0f0";
+            ctxt.moveTo(125,20)
+            ctxt.bezierCurveTo(0, 200, 300, 300, 50, 400)
+            ctxt.stroke();
+
+            ctxt.beginPath();
+            ctxt.arc(300,200,75,1.75*Math.PI, 1.25*Math.PI, false)
+            ctxt.lineTo(150,125);
+            ctxt.quadraticCurveTo(300,0,450,125)
+            ctxt.lineTo(353,144)
+            ctxt.lineCap = "round"
+            ctxt.lineWidth = 10;
+            ctxt.strokeStyle = "#00f";
+            ctxt.stroke();
+
+            ctxt.beginPath()
+            ctxt.strokeStyle = "black"
+            var x,y
+            x = 150
+            y = 75
+            ctxt.rect(300 - x/2,200-y/2,x,y)
+            ctxt.stroke()
+
+            ctxt.fillStyle = "blue"
+            ctxt.fillRect(300-x/2, 200-y/2, x,y)
+
+            ctxt.beginPath()
+            ctxt.arc(300,200,75,1.75*Math.PI, 1.25*Math.PI, false);
+            ctxt.lineTo(150,125)
+            ctxt.quadraticCurveTo(300,0,450,125)
+            ctxt.strokeStyle = "blue"
+            ctxt.lineCap = "round"
+            ctxt.lineWidth = 10
+            ctxt.fillStyle = "green"
+            ctxt.fill()
+            ctxt.stroke()
+
+            ctxt.beginPath()
+            ctxt.lineWidth = 3
+            ctxt.strokeStyle = "black"
+            ctxt.rect(150,150,200,125)
+            var gradient = ctxt.createLinearGradient(150,150,200,125)
+            gradient.addColorStop(0, "black")
+            gradient.addColorStop(0.5, "gray")
+            gradient.addColorStop(1, "white")
+            ctxt.fillStyle = gradient
+            ctxt.fill()
+            ctxt.stroke()
+
+            ctxt.beginPath()
+            ctxt.lineWidth = 3
+            ctxt.strokeStyle = "black"
+            ctxt.rect(150,0,250,175)
+            var gradient = ctxt.createRadialGradient(200,0,5,250,50,100)
+            gradient.addColorStop(0, "red")
+            gradient.addColorStop(0.5, "orange")
+            gradient.addColorStop(1, "blue")
+            ctxt.fillStyle = gradient
+            ctxt.fill()
+            ctxt.stroke()
+
+            ctxt.beginPath()
+            var img = new Image()
+            img.src = "orange.jpg"
+            img.onload = function() {
+                // ctxt.drawImage(img, 0, 0, img.width * .25, img.height * .25)
+                ctxt.stroke()
+            }
+
+            ctxt.beginPath()
+            ctxt.strokeText("1. Text with default font", 100, 100)
+            ctxt.font = "24px arial"
+            ctxt.strokeText("2. Text with altered font", 100, 125)
+            ctxt.strokeStyle = "red"
+            ctxt.strokeText("3. Text with altered colored font", 100, 160)
+            ctxt.fillStyle = "red"
+            ctxt.strokeText("4. Text with altered colored font", 100, 185)
+
+            ctxt.textAlign = "center"
+            ctxt.fillText("5. Text with altered colored font", drawingSurface.width/2, drawingSurface.height/2)
+
+
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="outerDiv">
+    <p class="mainPara">Main paragraph</p>
+    <canvas id="drawingSurface" width="600" height="400">
+        Your browser does not support HTML5
+    </canvas>
+</div>
+</body>
+</html>

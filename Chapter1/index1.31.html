@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <script>
+        var video;
+        window.onload = function() {
+            // var element = document.getElementById("outerDiv");
+            // console.log(element.innerHTML);
+            // var paragraphs = document.querySelectorAll("#outerDiv");
+            // console.log(paragraphs.length);
+            // var outerDiv = document.getElementById("outerDiv");
+            // var innerDiv = document.getElementById("innerDiv");
+            // document.removeChild(element)
+            // var element = document.createElement("article");
+            // element.innerText = "New <article> element";
+            // innerDiv.insertBefore(element, innerDiv.firstChild);
+            // var innerDiv = document.getElementById("innerDiv");
+            // var p = innerDiv.removeChild(document.getElementById("P1"))
+            // var newDiv = document.createElement("div");
+            // for(var i = 0; i < innerDiv.childNodes.length; i++) {
+            //     var anchor = newDiv.appendChild(document.createElement("a"));
+            //     anchor.setAttribute("href", "http://www.bing.ca");
+            //     anchor.text = innerDiv.childNodes[i].textContent;
+            //     newDiv.appendChild(document.createElement("br"));
+            // }
+            // innerDiv.parentNode.replaceChild(newDiv, innerDiv);
+            video = document.getElementById("sampleVideo");
+        }
+    </script>
+    <style>
+        img:hover {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+<div id="outerDiv">
+    <p class="mainPara">Main paragraph</p>
+    <ul>
+        <li>First list item</li>
+        <li>Second list item</li>
+        <li style="background-color: lightpink" onclick="this.style.visibility = 'collapse'">Third list item</li>
+        <li>Fourth list item</li>
+    </ul>
+    <div id="innerDiv">
+        <p class="subPara" id="P1">Paragraph 1</p>
+        <p class="subPara" id="P2">Paragraph 2</p>
+        <p class="subPara" id="P3">Paragraph 3</p>
+        <p class="subPara" id="P4">Paragraph 4</p>
+    </div>
+    <table border="1" width="100%">
+        <tr>
+            <td>Row1</td>
+        </tr>
+        <tr>
+            <td>Row2</td>
+        </tr>
+        <tr>
+            <td>Row3</td>
+        </tr>
+        <tr style="transition: .5s all;" onclick="this.style.visibility = 'collapse'">
+            <td>Row4</td>
+        </tr>
+        <tr>
+            <td>Row5</td>
+        </tr>
+    </table>
+</div>
+</body>
+</html>

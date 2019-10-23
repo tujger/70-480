@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" manifest="webApp.appcache">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <style>
+        section {
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        window.onload = function (ev) {
+            var appCache = window.applicationCache;
+            console.log("F", appCache)
+            appCache.oncached = function () {
+                console.log("cache downloaded")
+            }
+            appCache.onupdateready = function () {
+                console.log("cache swap")
+                appCache.swapCache()
+            }
+        }
+    </script>
+</head>
+<body>
+<section>
+    Key:
+    <input type="text" id="toStorageKey"/>
+    Value:
+    <input type="text" id="toStorageValue"/>
+</section>
+<section>
+    <button type="button" id="btnAdd">Add to storage</button>
+    <button type="button" id="btnRemove">Remove from storage</button>
+    <button type="button" id="btnClear">Clear storage</button>
+</section>
+<div id="storage">
+    <p>Current storage contents</p>
+</div>
+</body>
+</html>

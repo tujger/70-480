@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <style>
+        section {
+            margin-top: 15px;
+        }
+    </style>
+    <script>
+        window.onload = function (ev) {
+            var geo = window.navigator.geolocation
+            console.log(geo)
+            function successCallback (position) {
+                console.log("Position", position)
+                var sp = document.createElement("p")
+                sp.innerText = "Latitude: " + position.coords.latitude + " Longitude: " + position.coords.longitude
+                document.getElementById("geoResults").appendChild(sp)
+            }
+
+            function errorCallback (positionError) {
+                console.warn("Error", positionError)
+                var sp = document.createElement("p")
+                sp.innerText = "Error: " + positionError.message + " Code: " + positionError.code
+                document.getElementById("geoResults").appendChild(sp)
+            }
+            geo.getCurrentPosition(successCallback, errorCallback, {enableHighAccuracy:true, timeout:45000})
+            var watcher = geo.watchPosition(successCallback, errorCallback, {enableHighAccuracy:true, timeout:45000})
+
+        }
+    </script>
+</head>
+<body>
+<div id="geoResults">
+    <p>Current location is:</p>
+</div>
+</body>
+</html>

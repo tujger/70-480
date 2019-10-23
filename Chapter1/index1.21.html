@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title></title>
+    <script>
+        var video;
+        window.onload = function () {
+            var drawingSurface = document.getElementById("drawingSurface");
+            var ctxt = drawingSurface.getContext("2d");
+            console.log(ctxt);
+            ctxt.lineWidth = 5;
+            ctxt.strokeStyle = "#f00";
+            // ctxt.lineCap = "round";
+            ctxt.beginPath();
+            ctxt.moveTo(10, 10);
+            ctxt.lineTo(255, 350);
+            ctxt.lineTo(300, 10);
+            ctxt.lineTo(400, 350);
+            ctxt.lineWidth = 25;
+            ctxt.stroke();
+
+        }
+    </script>
+    <style>
+        canvas {
+            border: 1px solid black;
+        }
+    </style>
+</head>
+<body>
+<div id="outerDiv">
+    <p class="mainPara">Main paragraph</p>
+    <canvas id="drawingSurface" width="600" height="400">
+        Your browser does not support HTML5
+    </canvas>
+</div>
+</body>
+</html>
